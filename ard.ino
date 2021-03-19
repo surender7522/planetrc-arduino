@@ -28,19 +28,42 @@ void loop(){
   if(cmd!=""){
     Serial.print("Command recieved : ");
     Serial.println(cmd);
+    cmd = cmd.charAt(cmd.length()-1);
     // We expect ON or OFF from bluetooth
-    if(cmd=="ON"){
+    if(cmd=="s"){
         Serial.println("Function is on");
         digitalWrite(LED_BUILTIN, HIGH);
-        digitalWrite(13,HIGH);
-  digitalWrite(11,HIGH);
-    }else if(cmd=="OFF"){
+        digitalWrite(9,HIGH);
+        digitalWrite(10,LOW);
+        digitalWrite(11,LOW);
+        digitalWrite(12,HIGH);
+    }else if(cmd=="w"){
         Serial.println("Function is off");
         digitalWrite(LED_BUILTIN, LOW);
-        digitalWrite(13,LOW);
-  digitalWrite(11,LOW);
+        digitalWrite(9,LOW);
+        digitalWrite(10,HIGH);
+        digitalWrite(11,HIGH);
+        digitalWrite(12,LOW);
+    }else if(cmd=="d"){
+        Serial.println("Function is off");
+        digitalWrite(LED_BUILTIN, LOW);
+        digitalWrite(9,LOW);
+        digitalWrite(10,HIGH);
+        digitalWrite(11,LOW);
+        digitalWrite(12,HIGH);
+    }else if(cmd=="a"){
+        Serial.println("Function is off");
+        digitalWrite(LED_BUILTIN, LOW);
+        digitalWrite(9,HIGH);
+        digitalWrite(10,LOW);
+        digitalWrite(11,HIGH);
+        digitalWrite(12,LOW);
     }else{
-        Serial.println("Function is off by default");
+      digitalWrite(9,LOW);
+        digitalWrite(10,LOW);
+        digitalWrite(11,LOW);
+        digitalWrite(12,LOW);
+        Serial.println("Function is off by default");wsdawasd
     }
     cmd=""; //reset cmd
   }
